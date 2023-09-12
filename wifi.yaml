@@ -1,0 +1,11 @@
+wifi:
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
+  fast_connect: True
+  power_save_mode: none
+  manual_ip:
+    gateway: 192.168.0.1
+    subnet: 255.255.0.0
+    dns1: 192.168.2.149
+    dns2: 8.8.8.8
+    static_ip: 192.168.7.${last_octet}
