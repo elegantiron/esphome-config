@@ -1,0 +1,7 @@
+logger:
+  level: INFO
+
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+    timezone: America/New_York
