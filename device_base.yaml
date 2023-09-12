@@ -9,3 +9,9 @@ time:
   - platform: homeassistant
     id: homeassistant_time
     timezone: America/New_York
+
+switch:
+  - platform: restart
+    name: Restart
+  - platform: safe_mode
+    name: Restart in Safe-Mode
