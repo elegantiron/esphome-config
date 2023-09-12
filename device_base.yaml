@@ -1,3 +1,7 @@
+esphome:
+  name: ${device_name}
+  friendly_name: ${device_name_friendly}
+
 logger:
   level: INFO
 
