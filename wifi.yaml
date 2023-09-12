@@ -9,3 +9,16 @@ wifi:
     dns1: 192.168.2.149
     dns2: 8.8.8.8
     static_ip: 192.168.7.${last_octet}
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+    ssid:
+      name: Connected Network
+    bssid:
+      name: Connected BSSID
+    mac_address:
+      name: MAC Address
+sensor:
+  - platform: wifi_signal
+    name: Signal Strength
