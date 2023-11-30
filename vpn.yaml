@@ -1,0 +1,18 @@
+wireguard:
+  address: ${address}
+  private_key: ${private_key}
+  peer_endpoint: helpr.caprod.net
+  peer_public_key: E3WpjOlsC6vWls8a15bXsvoN1+2wIR7H0UEY/YlpFCw=
+  peer_preshared_key: ${server_psk}
+  netmask: 255.255.255.255
+  peer_allowed_ips: ${allowed_ips}
+  peer_persistent_keepalive: 25s
+  
+time:
+  - platform: sntp
+    id: sntp_time
+    timezone: ${timezone}
+    server:
+      - 0.pool.ntp.org
+      - 1.pool.ntp.org
+      - 2.pool.ntp.org
