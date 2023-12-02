@@ -1,0 +1,69 @@
+sensor:
+  - platform: pulse_counter
+    pin: ${WIND.SPEED_PIN}
+    unit_of_measurement: 'mph'
+    device_class: wind_speed
+    filters:
+      - multiply: 0.0249
+    name: "Wind Speed"
+  - platform: pulse_counter
+    pin: ${RAIN.PULSE_PIN}
+    unit_of_measurement: 'in/h'
+    device_class: precipitation_intensity
+    name: "Rainfall Intensity"
+    accuracy_decimals: 3
+    filters:
+      - lambda: return x * 0.011 * 60;
+    total:
+      name: "Total Rainfall"
+      accuracy_decimals: 3
+      unit_of_measurement: 'in'
+      device_class: precipitation
+      filters:
+        - lambda: return x * 0.11;
+  - platform: adc
+    id: wind_direction_source
+    pin: ${WIND.DIRECTION_PIN}
+    update_interval: 10s
+    attenuation: 11db
+  - platform: resistance
+    sensor: wind_direction_source
+    configuration: DOWNSTREAM
+    resistor: 10kOhm
+    on_value:
+      then:
+        - component.update: wind_direction
+
+text_sensor:
+  - platform: template
+    update_interval: never
+    id: wind_direction
+    lambda: |-
+      const int MARGIN = 300,
+                N = 33000,
+                NE = 8200,
+                E = 1000,
+                SE = 2200,
+                S = 3900,
+                SW = 16000,
+                W = 120000,
+                NW = 64900;
+      float res = id(wind_direction_resistance).state;
+      String direction = "";
+      if ((res > N - MARGIN) && (res < N + MARGIN))
+        return {"N"};
+      else if ((res > NE - MARGIN) && (res < NE + MARGIN))
+        return {"NE"};
+      else if ((res > E - MARGIN) && (res < E + MARGIN))
+        return {"E"};
+      else if ((res > SE - MARGIN) && (res < SE + MARGIN))
+        return {"SE"};
+      else if ((res > S - MARGIN) && (res < S + MARGIN))
+        return {"S"};
+      else if ((res > SW - MARGIN) && (res < SW + MARGIN))
+        return {"SW"};
+      else if ((res > W - MARGIN) && (res < W + MARGIN))
+        return {"W"};
+      else if ((res > NW - MARGIN) && (res < NW + MARGIN))
+        return {"NW"};
+      else return {"Unknown"};
