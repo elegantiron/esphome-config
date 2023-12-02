@@ -28,6 +28,7 @@ sensor:
     attenuation: 11db
   - platform: resistance
     sensor: wind_direction_source
+    id: wind_direction_resistance
     configuration: DOWNSTREAM
     resistor: 10kOhm
     on_value:
