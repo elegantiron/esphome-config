@@ -1,13 +1,13 @@
 sensor:
   - platform: pulse_counter
-    pin: ${WIND.SPEED_PIN}
+    pin: ${WIND_SPEED_PIN}
     unit_of_measurement: 'mph'
     device_class: wind_speed
     filters:
       - multiply: 0.0249
     name: "Wind Speed"
   - platform: pulse_counter
-    pin: ${RAIN.PULSE_PIN}
+    pin: ${RAIN_PULSE_PIN}
     unit_of_measurement: 'in/h'
     device_class: precipitation_intensity
     name: "Rainfall Intensity"
@@ -23,7 +23,7 @@ sensor:
         - lambda: return x * 0.11;
   - platform: adc
     id: wind_direction_source
-    pin: ${WIND.DIRECTION_PIN}
+    pin: ${WIND_DIRECTION_PIN}
     update_interval: 10s
     attenuation: 11db
   - platform: resistance
