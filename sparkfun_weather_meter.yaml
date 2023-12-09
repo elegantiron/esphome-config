@@ -75,4 +75,20 @@ text_sensor:
         return {"W"};
       else if ((res > NW - MARGIN) && (res < NW + MARGIN))
         return {"NW"};
+      else if ((res > NNE - MARGIN) && (res < NNE + MARGIN))
+        return {"NNE"};
+      else if ((res > ENE - MARGIN) && (res < ENE + MARGIN))
+        return {"ENE"};
+      else if ((res > ESE - MARGIN) && (res < ESE + MARGIN))
+        return {"ESE"};
+      else if ((res > SSE - MARGIN) && (res < SSE + MARGIN))
+        return {"SSE"};
+      else if ((res > SSW - MARGIN) && (res < SSW + MARGIN))
+        return {"SSW"};
+      else if ((res > WSW - MARGIN) && (res < WSW + MARGIN))
+        return {"WSW"};
+      else if ((res > WNW - MARGIN) && (res < WNW + MARGIN))
+        return {"WNW"};
+      else if ((res > NNW - MARGIN) && (res < NNW + MARGIN))
+        return {"NNW"};
       else return {"Unknown"};
