@@ -40,7 +40,7 @@ text_sensor:
     update_interval: never
     id: wind_direction
     lambda: |-
-      const int MARGIN = 300,
+      const int MARGIN = 1000,
                 N = 33000,
                 NE = 8200,
                 E = 1000,
