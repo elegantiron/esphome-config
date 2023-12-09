@@ -15,7 +15,7 @@ sensor:
     filters:
       - lambda: return x * 0.011 * 60;
     total:
-      name: "Total Rainfall"
+      name: "Rainfall Total"
       accuracy_decimals: 3
       unit_of_measurement: 'in'
       device_class: precipitation
