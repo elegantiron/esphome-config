@@ -44,7 +44,7 @@ text_sensor:
                 N = 33000,
                 NNE = 6570,
                 NE = 8200,
-                ENE = 891
+                ENE = 891,
                 E = 1000,
                 ESE = 688,
                 SE = 2200,
