@@ -20,7 +20,7 @@ sensor:
       unit_of_measurement: 'in'
       device_class: precipitation
       filters:
-        - lambda: return x * 0.11;
+        - lambda: return x * 0.011;
   - platform: adc
     id: wind_direction_source
     pin: ${WIND_DIRECTION_PIN}
